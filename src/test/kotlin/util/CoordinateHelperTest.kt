@@ -21,7 +21,7 @@ internal class CoordinateHelperTest {
 
 	companion object {
 		@JvmStatic
-		fun `parseDirection when valid Direction is passed, it should return N Method Source`() : Stream<Arguments> {
+		fun `parseDirection when valid Direction is passed, it should return N Method Source`(): Stream<Arguments> {
 			return Stream.of(
 				Arguments.of("0:0:N", "N", "North"),
 				Arguments.of("0:0:S", "S", "South"),
@@ -31,12 +31,8 @@ internal class CoordinateHelperTest {
 		}
 
 		@JvmStatic
-		fun `parseDirection when invalid Direction is passed, it should throw InvalidDirectionException Method Source`() : Stream<String> {
-			val invalidDirections = (('A'..'Z') + ('a'..'z')).toMutableList().apply { removeAll(
-				listOf('N', 'S', 'E', 'W')) }.map { "0:0:${it}" }.toList()
-			println(invalidDirections)
-			return invalidDirections.stream()
-		}
+		fun `parseDirection when invalid Direction is passed, it should throw InvalidDirectionException Method Source`() =
+			CommonTestInputs.invalidDirectionsStream
 	}
 
 	//region parseX
